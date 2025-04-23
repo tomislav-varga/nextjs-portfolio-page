@@ -16,27 +16,6 @@ export default function About() {
                 My journey in software development has led me to specialize in creating
                 efficient, scalable, and user-friendly solutions.
               </p>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">Skills</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-xl font-medium mb-2">Frontend</h3>
-                  <ul className="list-disc list-inside">
-                    <li>Next.js</li>
-                    <li>React</li>
-                    <li>TypeScript</li>
-                    <li>Tailwind CSS</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-2">Backend</h3>
-                  <ul className="list-disc list-inside">
-                    <li>Node.js</li>
-                    <li>Express</li>
-                    <li>PostgreSQL</li>
-                    <li>MongoDB</li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </section>
