@@ -9,6 +9,9 @@ export function HeroSection() {
           A passionate full-stack developer building modern web applications
           with Next.js and TypeScript.
         </p>
+        <p className="text-lg text-muted-foreground max-w-[600px]">
+           Click <a href="/about" className="text-violet-800 font-bold hover:text-violet-600 transition-colors duration-200">here</a> to get to know more about me.
+        </p>
       </div>
     </section>
   )
