@@ -3,13 +3,13 @@
 import { projects } from "@/data/projects"
 import { ProjectCard } from "@/components/project-card"
 import useEmblaCarousel from 'embla-carousel-react'
-import {  useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export function ProjectsSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: false, 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
     align: 'start',
     slidesToScroll: 1,
     breakpoints: {
@@ -17,7 +17,7 @@ export function ProjectsSection() {
       '(min-width: 1024px)': { slidesToScroll: 3 }
     }
   })
-  
+
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
   const [nextBtnEnabled, setNextBtnEnabled] = useState(true)
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -34,17 +34,54 @@ export function ProjectsSection() {
 
   useEffect(() => {
     if (!emblaApi) return
-    
+
     emblaApi.on('select', onSelect)
     emblaApi.on('reInit', onSelect)
-    
+
     onSelect()
-    
+
     return () => {
       emblaApi.off('select', onSelect)
       emblaApi.off('reInit', onSelect)
     }
   }, [emblaApi, onSelect])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const autoplayInterval = 5000
+    let autoplayTimer: NodeJS.Timeout
+
+    const autoplay = () => {
+      clearTimeout(autoplayTimer)
+      autoplayTimer = setTimeout(() => {
+        if (!emblaApi.canScrollNext()) {
+          emblaApi.scrollTo(0)
+        } else {
+          emblaApi.scrollNext()
+        }
+        autoplay()
+      }, autoplayInterval)
+    }
+
+    autoplay()
+
+    // Stop autoplay on user interaction
+    const onMouseEnter = () => clearTimeout(autoplayTimer)
+    const onMouseLeave = () => autoplay()
+
+    const rootNode = emblaApi.rootNode()
+    rootNode.addEventListener('mouseenter', onMouseEnter)
+    rootNode.addEventListener('mouseleave', onMouseLeave)
+
+    return () => {
+      clearTimeout(autoplayTimer)
+      if (rootNode) {
+        rootNode.removeEventListener('mouseenter', onMouseEnter)
+        rootNode.removeEventListener('mouseleave', onMouseLeave)
+      }
+    }
+  }, [emblaApi])
 
   return (
     <section className="py-12">
@@ -56,14 +93,14 @@ export function ProjectsSection() {
             user experience, performance, and clean code.
           </p>
         </div>
-        
+
         <div className="relative">
           {/* Carousel container */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {projects.map((project) => (
-                <div 
-                  key={project.title} 
+                <div
+                  key={project.title}
                   className="flex-[0_0_100%] min-w-0 px-3 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
                 >
                   <ProjectCard project={project} />
@@ -71,23 +108,23 @@ export function ProjectsSection() {
               ))}
             </div>
           </div>
-          
+
           {/* Navigation buttons */}
           <div className="flex justify-center gap-4 mt-6">
-            <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={scrollPrev} 
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollPrev}
               disabled={!prevBtnEnabled}
               className="rounded-full"
               aria-label="Previous project"
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={scrollNext} 
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollNext}
               disabled={!nextBtnEnabled}
               className="rounded-full"
               aria-label="Next project"
@@ -95,18 +132,17 @@ export function ProjectsSection() {
               <ChevronRight className="h-5 w-5" />
             </Button>
           </div>
-          
+
           {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-4">
             {Array.from({ length: projects.length - 2 }).map((_, index) => (
               <button
                 key={index}
                 type="button"
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === selectedIndex 
-                    ? 'bg-primary' 
+                className={`w-2 h-2 rounded-full transition-colors ${index === selectedIndex
+                    ? 'bg-primary'
                     : 'bg-primary/30 hover:bg-primary/50'
-                }`}
+                  }`}
                 onClick={() => emblaApi?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
