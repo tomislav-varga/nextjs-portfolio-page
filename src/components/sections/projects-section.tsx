@@ -2,6 +2,7 @@
 
 import { projects } from "@/data/projects"
 import { ProjectCard } from "@/components/project-card"
+import { CarouselDots } from "../ui/carousel-dots"
 import useEmblaCarousel from 'embla-carousel-react'
 import { useCallback, useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
@@ -132,22 +133,7 @@ export function ProjectsSection() {
               <ChevronRight className="h-5 w-5" />
             </Button>
           </div>
-
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-4">
-            {Array.from({ length: projects.length - 2 }).map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`w-2 h-2 rounded-full transition-colors ${index === selectedIndex
-                    ? 'bg-primary'
-                    : 'bg-primary/30 hover:bg-primary/50'
-                  }`}
-                onClick={() => emblaApi?.scrollTo(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+          <CarouselDots selectedIndex={selectedIndex} slideCount={projects.length} onDotClick={(index) => emblaApi?.scrollTo(index)} />
         </div>
       </div>
     </section>
