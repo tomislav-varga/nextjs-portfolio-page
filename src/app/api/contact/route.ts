@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await request.json();
-    
+
     // Sanitize input data
     const sanitizedData = sanitizeFormData(data);
     const { name, email, message } = sanitizedData;
@@ -50,11 +50,28 @@ export async function POST(request: NextRequest) {
         pass: process.env.EMAIL_PASS,
       },
       tls: {
-    // Do not fail on invalid certificates
-    rejectUnauthorized: false
-  }
+        // Do not fail on invalid certificates
+        rejectUnauthorized: false
+      }
     });
+
+    // Generate test SMTP service account
+    // const testAccount = await nodemailer.createTestAccount();
+    /* 
+        // Create a test transporter
+        const transporter = nodemailer.createTransport({
+          host: 'smtp.ethereal.email',
+          port: 587,
+          secure: false,
+          auth: {
+            user: testAccount.user,
+            pass: testAccount.pass,
+          },
+        }); */
+
+    // After sending the mail, log the URL where you can see the sent message
     // Email content
+
     const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
@@ -69,7 +86,9 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Message sent: %s', info.messageId);
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
     return NextResponse.json(
       { message: 'Message sent successfully', data: newMessage },
