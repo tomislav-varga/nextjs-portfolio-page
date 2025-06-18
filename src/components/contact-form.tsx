@@ -47,15 +47,15 @@ export function ContactForm() {
       }
 
       toast({
-        title: "Success!",
-        description: "Your message has been sent successfully.",
+        title: "Erfolg!",
+        description: "Deine Nachricht wurde erfolgreich gesendet.",
       })
       reset()
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Something went wrong. Please try again.'
+      const errorMessage = error instanceof Error ? error.message : 'Etwas ist schiefgelaufen. Bitte versuche es erneut.'
       
       toast({
-        title: "Error",
+        title: "Fehler",
         description: errorMessage,
         variant: "destructive",
       })
@@ -74,7 +74,7 @@ export function ContactForm() {
           id="name"
           {...register("name")}
           className="mt-1"
-          placeholder="Your name"
+          placeholder="Dein Name"
         />
         {errors.name && (
           <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -83,14 +83,14 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-          Email
+          E-Mail
         </label>
         <Input
           id="email"
           type="email"
           {...register("email")}
           className="mt-1"
-          placeholder="your@email.com"
+          placeholder="deine@email.com"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -99,13 +99,13 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-          Message
+          Nachricht
         </label>
         <Textarea
           id="message"
           {...register("message")}
           className="mt-1"
-          placeholder="Your message"
+          placeholder="Deine Nachricht"
           rows={4}
         />
         {errors.message && (
@@ -114,7 +114,7 @@ export function ContactForm() {
       </div>
 
       <Button type="submit" disabled={isSubmitting} className="w-full">
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
       </Button>
     </form>
   )

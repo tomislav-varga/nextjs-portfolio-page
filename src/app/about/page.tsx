@@ -9,12 +9,12 @@ export default function About() {
       <main className="flex-1">
         <section className="container mx-auto px-4 py-8">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold mb-6">About Me</h1>
+            <h1 className="text-4xl font-bold mb-6">Über Mich</h1>
             <div className="prose dark:prose-invert">
               <p className="text-lg mb-4">
-                I'm a full-stack developer with a passion for building modern web applications.
-                My journey in software development has led me to specialize in creating
-                efficient, scalable, and user-friendly solutions.
+                Ich bin ein Full-Stack-Entwickler mit einer Leidenschaft für die Entwicklung moderner Webanwendungen.
+                Meine Reise in der Softwareentwicklung hat mich dazu gebracht, mich auf die Erstellung
+                effizienter, skalierbarer und benutzerfreundlicher Lösungen zu spezialisieren.
               </p>
             </div>
           </div>
