@@ -17,7 +17,7 @@ export function Footer() {
           </a>
         </div>
         <p className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Tom. Alle Rechte vorbehalten.
+          © {new Date().getFullYear()} Tom Varga. Alle Rechte vorbehalten.
         </p>
       </div>
     </footer>
