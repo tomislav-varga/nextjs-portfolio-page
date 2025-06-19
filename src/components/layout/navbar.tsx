@@ -47,9 +47,10 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex flex-1">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+      <div className="container flex h-14 items-center justify-between">
+        {/* Logo on the left */}
+        <div className="flex-none">
+          <Link href="/" className="flex items-center space-x-2">
             <span className={`${jetbrainsMono.className} font-bold flex items-center leading-none`}>
               <span className="relative text-xl tracking-tight">
                 <span className="absolute -bottom-0.5 left-0.5 text-foreground/30">codecrafter</span>
@@ -57,13 +58,16 @@ export function Navbar() {
               </span>
             </span>
           </Link>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        </div>
+        
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden md:flex items-center justify-center">
+          <nav className="flex items-center space-x-6 text-sm font-medium">
             <NavItems isMobile={false} />
           </nav>
         </div>
         
+        {/* Mode toggle and mobile menu on the right */}
         <div className="flex items-center space-x-2">
           {/* Always visible mode toggle */}
           <ModeToggle />
