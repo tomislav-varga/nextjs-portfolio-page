@@ -204,12 +204,6 @@ export function ContactForm() {
         </form>
       ) : (
         <div className="mt-4">
-          {/* 
-            To set up Cal.com:
-            1. Create an account on https://cal.com/
-            2. Set up your availability and event types
-            3. Replace the username in data-cal-link with your actual Cal.com username
-          */}
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             <Cal
               calLink="tomislav.varga/30min"
