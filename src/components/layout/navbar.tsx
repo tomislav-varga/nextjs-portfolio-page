@@ -27,7 +27,7 @@ export function Navbar() {
                 pathname === "/" ? "text-foreground" : "text-foreground/60"
               }`}
             >
-              Home
+              Startseite
             </Link>
             <Link
               href="/about"
@@ -35,7 +35,15 @@ export function Navbar() {
                 pathname === "/about" ? "text-foreground" : "text-foreground/60"
               }`}
             >
-              About
+              Über mich
+            </Link>
+            <Link
+              href="#contact-form"
+              className={`transition-colors hover:text-foreground/80 ${
+                pathname === "/about" ? "text-foreground" : "text-foreground/60"
+              }`}
+            >
+              Kontakt
             </Link>
           </nav>
         </div>
