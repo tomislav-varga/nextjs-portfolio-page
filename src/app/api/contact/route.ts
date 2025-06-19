@@ -3,7 +3,6 @@ import connectDB from '@/lib/mongodb';
 import ContactMessage from '@/models/ContactMessage';
 import { rateLimit } from '@/lib/rate-limit';
 import { sanitizeFormData } from '@/lib/sanitize';
-import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,55 +39,6 @@ export async function POST(request: NextRequest) {
       email,
       message,
     });
-    // Send email notification
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: Number(process.env.EMAIL_PORT) || 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        // Do not fail on invalid certificates
-        rejectUnauthorized: false
-      }
-    });
-
-    // Generate test SMTP service account
-    // const testAccount = await nodemailer.createTestAccount();
-    /* 
-        // Create a test transporter
-        const transporter = nodemailer.createTransport({
-          host: 'smtp.ethereal.email',
-          port: 587,
-          secure: false,
-          auth: {
-            user: testAccount.user,
-            pass: testAccount.pass,
-          },
-        }); */
-
-    // After sending the mail, log the URL where you can see the sent message
-    // Email content
-
-    const mailOptions = {
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
-      subject: 'New Contact Message',
-      text: `You have received a new message from ${name} (${email}):`,
-      html: `
-        <h1>New Contact Form Submission</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
-    };
-
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
     return NextResponse.json(
       { message: 'Message sent successfully', data: newMessage },
