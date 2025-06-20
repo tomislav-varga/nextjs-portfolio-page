@@ -12,7 +12,7 @@ export function ContactSection() {
             </div>
             <h2 className="text-3xl font-bold mb-4">Kontakt</h2>
             <p className="text-muted-foreground">
-              Hast du eine Frage oder möchtest du zusammenarbeiten? Melde dich gerne!
+              Hast du eine Frage oder möchtest du mit mir zusammenarbeiten? Melde dich gerne!
             </p>
           </div>
           <div className="bg-card rounded-lg border p-6 shadow-sm">
