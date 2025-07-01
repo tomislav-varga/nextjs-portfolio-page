@@ -80,6 +80,7 @@ export function ContactForm() {
             toast({
               title: "Terminbuchung erfolgreich!",
               description: "Dein Termin wurde erfolgreich gebucht.",
+              variant: "success",
             });
           },
         });
@@ -109,6 +110,7 @@ export function ContactForm() {
       toast({
         title: "Erfolg!",
         description: "Deine Nachricht wurde erfolgreich gesendet.",
+        variant: "success",
       })
       reset()
     } catch (error) {
@@ -117,7 +119,7 @@ export function ContactForm() {
       toast({
         title: "Fehler",
         description: errorMessage,
-        variant: "destructive",
+        variant: "error",
       })
     } finally {
       setIsSubmitting(false)
