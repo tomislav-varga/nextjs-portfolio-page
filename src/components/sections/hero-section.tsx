@@ -9,9 +9,7 @@ export function HeroSection() {
           Ein leidenschaftlicher Full-Stack-Entwickler, der moderne Webanwendungen
           mit Next.js und TypeScript erstellt.
         </p>
-        <p className="text-lg text-muted-foreground max-w-[600px]">
-           Klicke <a href="/about" className="font-bold">hier</a>, um mehr über mich zu erfahren.
-        </p>
+
       </div>
     </section>
   )

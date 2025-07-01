@@ -13,6 +13,9 @@ export function AboutSection() {
             Wenn ich nicht programmiere, kann man mich dabei finden, neue Technologien zu erkunden, zu Open-Source-Projekten
             beizutragen oder mein Wissen mit der Entwickler-Community zu teilen.
           </p>
+          <p className="text-lg text-muted-foreground max-w-[600px]">
+            Klicke <a href="/about" className="font-bold">hier</a>, um mehr über mich zu erfahren.
+          </p>
         </div>
       </div>
     </section>
