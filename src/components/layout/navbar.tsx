@@ -34,9 +34,9 @@ export function Navbar() {
         Über mich
       </Link>
       <Link
-        href="#contact-form"
+        href="/contact"
         className={`transition-colors hover:text-foreground/80 ${
-          pathname === "/about" ? "text-foreground" : "text-foreground/60"
+          pathname === "/contact" ? "text-foreground" : "text-foreground/60"
         } ${isMobile ? "py-2 border-b" : ""}`}
         onClick={() => isMobile && setIsOpen(false)}
       >
