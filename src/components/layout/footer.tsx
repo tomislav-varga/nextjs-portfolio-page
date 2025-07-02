@@ -15,6 +15,12 @@ export function Footer() {
           >
             Datenschutz
           </a>
+          <a
+            href="/privacy"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Cookie-Einstellungen
+          </a>
         </div>
         <p className="text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Tom Varga. Alle Rechte vorbehalten.
