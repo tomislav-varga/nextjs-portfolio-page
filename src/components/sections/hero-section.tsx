@@ -6,8 +6,7 @@ export function HeroSection() {
           Hallo, ich bin Tomi
         </h1>
         <p className="text-lg text-muted-foreground max-w-[600px]">
-          Ein leidenschaftlicher Full-Stack-Entwickler, der moderne Webanwendungen
-          mit Next.js und TypeScript erstellt.
+          Ein Full-Stack-Entwickler mit Begeisterung für moderne Tools und das Ziel, benutzerzentrierte Webapplikationen zu gestalten.
         </p>
 
       </div>
