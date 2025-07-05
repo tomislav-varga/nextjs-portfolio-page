@@ -6,7 +6,7 @@ export function AboutSection() {
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg text-muted-foreground mb-6">
             Ich bin ein Full-Stack-Entwickler mit einer Leidenschaft für die Erstellung schöner und funktionaler Webanwendungen.
-            Mit Expertise in Frontend- und Backend-Technologien strebe ich danach, skalierbare und
+            Mit Expertise in Frontend- und Backend- Technologien strebe ich danach, skalierbare und
             wartbare Lösungen zu entwickeln, die großartige Benutzererfahrungen bieten.
           </p>
           <p className="text-lg text-muted-foreground mb-6">
