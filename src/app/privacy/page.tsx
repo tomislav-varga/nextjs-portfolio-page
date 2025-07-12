@@ -57,8 +57,8 @@ export default function PrivacyPage() {
                                         </p>
                                     </div>
                                     <span className={`text-sm px-2 py-1 rounded ${preferences.analytics
-                                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
-                                            : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
+                                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                                        : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
                                         }`}>
                                         {preferences.analytics ? 'Aktiviert' : 'Deaktiviert'}
                                     </span>
@@ -72,8 +72,8 @@ export default function PrivacyPage() {
                                         </p>
                                     </div>
                                     <span className={`text-sm px-2 py-1 rounded ${preferences.marketing
-                                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
-                                            : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
+                                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                                        : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
                                         }`}>
                                         {preferences.marketing ? 'Aktiviert' : 'Deaktiviert'}
                                     </span>
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
                         {/* Privacy Policy Info */}
                         <div className="space-y-4">
                             <h2 className="text-xl font-semibold">Datenschutz-Informationen</h2>
-                            <div className="prose prose-sm max-w-none">
+                            <div className="prose prose-sm max-w-none dark:prose-invert">
                                 <p>
                                     Wir respektieren Ihre Privatsphäre und verpflichten uns, Ihre persönlichen Daten zu schützen.
                                     Unsere Verwendung von Cookies hilft uns, Ihnen ein besseres Erlebnis beim Besuch unserer Website zu bieten.
