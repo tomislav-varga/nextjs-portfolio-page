@@ -9,12 +9,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce platform built with Next.js, featuring product listings, shopping cart, and secure checkout.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
-    imageUrl: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/ecommerce",
-    liveUrl: "https://ecommerce-demo.com"
+    title: "Website für ein lokales Unternehmen",
+    description: "Eine moderne, responsive Website für Bayern Express, ein Wasserschaden-Sanierungsunternehmen aus München. Entwickelt mit Next.js und Tailwind CSS für schnelle Ladezeiten und optimale Benutzererfahrung.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+    imageUrl: "/Bayern-Express-Professionelle-Wasserschaden-Behebung-07-14-2025_12_15_PM.jpg",
+    githubUrl: "https://github.com/tomislav-varga/bayern-express",
+    liveUrl: "https://bayern-express.vercel.app/"
   },
   {
     title: "Task Management App",
@@ -32,4 +32,4 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/yourusername/portfolio",
     liveUrl: "https://your-portfolio.com"
   }
-] 
+]
