@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group relative overflow-hidden rounded-lg border bg-background p-2">
+    <div className="group relative overflow-hidden rounded-lg border bg-background p-2 h-full flex flex-col">
       <div className="aspect-video relative overflow-hidden rounded-md">
         <Image
           src={project.imageUrl}
@@ -19,9 +19,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           className="object-cover transition-transform group-hover:scale-105"
         />
       </div>
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1">
         <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-muted-foreground mb-4">{project.description}</p>
+        <p className="text-muted-foreground mb-4 flex-1">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
             <span
@@ -32,7 +32,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </span>
           ))}
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-auto">
           {project.githubUrl && (
             <Button variant="outline" size="sm" asChild>
               <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
@@ -53,4 +53,4 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
     </div>
   )
-} 
+}
