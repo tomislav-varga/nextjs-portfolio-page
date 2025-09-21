@@ -16,10 +16,9 @@ export function HeroSection() {
         </div>
         
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          Hallo, ich bin Tomi
+          Hello, I am Tomi!
         </h1>
         <p className="text-lg text-muted-foreground max-w-[600px]">
-          Ein Full-Stack-Entwickler mit Begeisterung für moderne Tools und das Ziel, benutzerzentrierte Webapplikationen zu gestalten.
         </p>
 
       </div>
