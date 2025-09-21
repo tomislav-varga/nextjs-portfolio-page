@@ -4,6 +4,9 @@ import ContactMessage from '@/models/ContactMessage';
 import { rateLimit } from '@/lib/rate-limit';
 import { sanitizeFormData } from '@/lib/sanitize';
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
   try {
     // Check rate limit
@@ -31,7 +34,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Connect to MongoDB
-    await connectDB();
+    try {
+      await connectDB();
+    } catch (dbError) {
+      console.error('Database connection error:', dbError);
+      return NextResponse.json(
+        { message: 'Database service temporarily unavailable' },
+        { status: 503 }
+      );
+    }
 
     // Create new message
     const newMessage = await ContactMessage.create({
