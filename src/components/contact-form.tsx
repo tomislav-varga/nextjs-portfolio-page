@@ -78,8 +78,8 @@ export function ContactForm() {
           action: "bookingSuccessful",
           callback: () => {
             toast({
-              title: "Terminbuchung erfolgreich!",
-              description: "Dein Termin wurde erfolgreich gebucht.",
+              title: "Booking successful!",
+              description: "Your appointment has been successfully booked.",
               variant: "success",
             });
           },
@@ -108,16 +108,16 @@ export function ContactForm() {
       }
 
       toast({
-        title: "Erfolg!",
-        description: "Deine Nachricht wurde erfolgreich gesendet.",
+        title: "Success!",
+        description: "Your message has been sent successfully.",
         variant: "success",
       })
       reset()
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Etwas ist schiefgelaufen. Bitte versuche es erneut.'
+      const errorMessage = error instanceof Error ? error.message : 'Something went wrong. Please try again.'
       
       toast({
-        title: "Fehler",
+        title: "Error",
         description: errorMessage,
         variant: "error",
       })
@@ -137,7 +137,7 @@ export function ContactForm() {
               : 'bg-card text-muted-foreground hover:bg-secondary hover:text-secondary-foreground'}`}
             onClick={() => setShowCalendar(false)}
           >
-            Kontaktformular
+            Contact Form
           </button>
           <button
             type="button"
@@ -146,7 +146,7 @@ export function ContactForm() {
               : 'bg-card text-muted-foreground hover:bg-secondary hover:text-secondary-foreground'}`}
             onClick={() => setShowCalendar(true)}
           >
-            Terminbuchung
+            Book Appointment
           </button>
         </div>
       </div>
@@ -161,7 +161,7 @@ export function ContactForm() {
               id="name"
               {...register("name")}
               className="mt-1"
-              placeholder="Dein Name"
+              placeholder="Your name"
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -170,14 +170,14 @@ export function ContactForm() {
 
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              E-Mail
+              Email
             </label>
             <Input
               id="email"
               type="email"
               {...register("email")}
               className="mt-1"
-              placeholder="deine@email.com"
+              placeholder="your@email.com"
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -186,13 +186,13 @@ export function ContactForm() {
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-              Nachricht
+              Message
             </label>
             <Textarea
               id="message"
               {...register("message")}
               className="mt-1"
-              placeholder="Deine Nachricht"
+              placeholder="Your message"
               rows={4}
             />
             {errors.message && (
@@ -201,7 +201,7 @@ export function ContactForm() {
           </div>
 
           <Button type="submit" disabled={isSubmitting} className="w-full">
-            {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
+            {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
         </form>
       ) : (
@@ -223,7 +223,7 @@ export function ContactForm() {
           </div>
           
           <div className="mt-4 text-sm text-muted-foreground">
-            <p>Tipp: Falls der Kalender nicht angezeigt wird, versuche die Seite zu aktualisieren oder wähle einen anderen Webbrowser.</p>
+            <p>Tip: If the calendar doesn't load, try refreshing the page or using a different browser.</p>
           </div>
         </div>
       )}

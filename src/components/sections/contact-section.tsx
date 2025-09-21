@@ -10,9 +10,9 @@ export function ContactSection() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
               <Mail className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="text-3xl font-bold mb-4">Kontakt</h2>
+            <h2 className="text-3xl font-bold mb-4">Contact</h2>
             <p className="text-muted-foreground">
-              Hast du eine Frage oder möchtest du mit mir zusammenarbeiten? Melde dich gerne!
+              Have a question or want to work together? Feel free to reach out!
             </p>
           </div>
           <div className="bg-card rounded-lg border p-6 shadow-sm">
