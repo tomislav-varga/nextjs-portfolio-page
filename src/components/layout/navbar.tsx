@@ -22,7 +22,7 @@ export function Navbar() {
         } ${isMobile ? "py-2 border-b" : ""}`}
         onClick={() => isMobile && setIsOpen(false)}
       >
-        Startseite
+        Home
       </Link>
       <Link
         href="/about"
@@ -31,7 +31,7 @@ export function Navbar() {
         } ${isMobile ? "py-2 border-b" : ""}`}
         onClick={() => isMobile && setIsOpen(false)}
       >
-        Über mich
+        About
       </Link>
       <Link
         href="/contact"
@@ -40,7 +40,7 @@ export function Navbar() {
         } ${isMobile ? "py-2 border-b" : ""}`}
         onClick={() => isMobile && setIsOpen(false)}
       >
-        Kontakt
+        Contact
       </Link>
     </>
   );
