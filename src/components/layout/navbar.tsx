@@ -12,32 +12,22 @@ import { useState } from "react"
 export function Navbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  
+
   const NavItems = ({ isMobile = false }) => (
     <>
       <Link
         href="/"
-        className={`transition-colors hover:text-foreground/80 ${
-          pathname === "/" ? "text-foreground" : "text-foreground/60"
-        } ${isMobile ? "py-2 border-b" : ""}`}
+        className={`transition-colors hover:text-foreground/80 ${pathname === "/" ? "text-foreground" : "text-foreground/60"
+          } ${isMobile ? "py-2 border-b" : ""}`}
         onClick={() => isMobile && setIsOpen(false)}
       >
         Home
       </Link>
-      <Link
-        href="/about"
-        className={`transition-colors hover:text-foreground/80 ${
-          pathname === "/about" ? "text-foreground" : "text-foreground/60"
-        } ${isMobile ? "py-2 border-b" : ""}`}
-        onClick={() => isMobile && setIsOpen(false)}
-      >
-        About
-      </Link>
+
       <Link
         href="/contact"
-        className={`transition-colors hover:text-foreground/80 ${
-          pathname === "/contact" ? "text-foreground" : "text-foreground/60"
-        } ${isMobile ? "py-2 border-b" : ""}`}
+        className={`transition-colors hover:text-foreground/80 ${pathname === "/contact" ? "text-foreground" : "text-foreground/60"
+          } ${isMobile ? "py-2 border-b" : ""}`}
         onClick={() => isMobile && setIsOpen(false)}
       >
         Contact
@@ -59,19 +49,19 @@ export function Navbar() {
             </span>
           </Link>
         </div>
-        
+
         {/* Desktop Navigation - Centered */}
         <div className="hidden md:flex items-center justify-center">
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <NavItems isMobile={false} />
           </nav>
         </div>
-        
+
         {/* Mode toggle and mobile menu on the right */}
         <div className="flex items-center space-x-2">
           {/* Always visible mode toggle */}
           <ModeToggle />
-          
+
           {/* Mobile Menu (hamburger) */}
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
