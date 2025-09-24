@@ -19,6 +19,7 @@ export function HeroSection() {
           Hello, I am Tomi!
         </h1>
         <p className="text-lg text-muted-foreground max-w-[600px]">
+          Aspiring DevOps Engineer with a passion for Linux, automation, and building reliable systems.
         </p>
 
       </div>
