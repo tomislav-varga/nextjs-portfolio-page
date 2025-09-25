@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-nextjs-portfolio
+  namespace: nextjs-portfolio
+  labels:
+    app: nextjs-portfolio
+spec:
+  selector:
+    app: nextjs-portfolio
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+    protocol: TCP
+  type: ClusterIP
