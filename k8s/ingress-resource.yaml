@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nextjs-portfolio
+  namespace: nextjs-portfolio
+  annotations:
+    kubernetes.io/ingress.class: "haproxy"
+spec:
+  rules:
+  - host: codecrafter.space
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: service-nextjs-portfolio
+            port:
+              number: 3000
