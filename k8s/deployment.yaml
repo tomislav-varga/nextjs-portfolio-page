@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: nextjs-portfolio
+  name: nextjs-portfolio
+  labels:
+    app: nextjs-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextjs-portfolio
+  template:
+    metadata:
+      labels:
+        app: nextjs-portfolio
+    spec:
+      containers:
+      - name: nextjs-portfolio
+        image: tomsolo1984/next-portfolio:0.1.1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: nextjs-portfolio-secrets
+              key: MONGODB_URI
+ 
