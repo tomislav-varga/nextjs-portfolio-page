@@ -1,0 +1,25 @@
+# Ingress for project service in different namespace
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-project-service
+  namespace: project-namespace  # Different namespace
+  annotations:
+    kubernetes.io/ingress.class: "haproxy"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - codecrafter.space
+    secretName: codecrafter-space-tls-project  # Different secret name per namespace
+  rules:
+  - host: codecrafter.space
+    http:
+      paths:
+      - path: /project
+        pathType: Prefix
+        backend:
+          service:
+            name: project-service
+            port:
+              number: 8080
