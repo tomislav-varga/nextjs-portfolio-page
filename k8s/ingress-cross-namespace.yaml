@@ -1,0 +1,45 @@
+# ExternalName service to access service from another namespace
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-service-proxy
+  namespace: nextjs-portfolio
+spec:
+  type: ExternalName
+  externalName: project-service.project-namespace.svc.cluster.local
+  ports:
+  - port: 8080
+    targetPort: 8080
+---
+# Then reference this proxy service in your main ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-codecrafter-cross-namespace
+  namespace: nextjs-portfolio
+  annotations:
+    kubernetes.io/ingress.class: "haproxy"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - codecrafter.space
+    secretName: codecrafter-space-tls-cross-ns
+  rules:
+  - host: codecrafter.space
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: service-nextjs-portfolio
+            port:
+              number: 3000
+      - path: /project
+        pathType: Prefix
+        backend:
+          service:
+            name: project-service-proxy  # Proxy to other namespace
+            port:
+              number: 8080
